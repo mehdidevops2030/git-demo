@@ -1,0 +1,70 @@
+#!/bin/bash
+
+while true
+do
+
+
+         echo -n 'enter the first number : '
+        read -r num1
+        echo -n 'enter the second number : '
+        read -r num2
+
+        echo "
+                A.addition
+                B.subtraction
+                C.multiplication
+                d.exit
+                e:continue
+        "
+        read -p "select operation: " operation
+
+
+				case $operation in
+                A|addition|add) echo "additoin of two numbers = $((num1+num2))"
+                    
+					read -p "do you want to continue :" yes
+
+
+                        if [ $yes == yes ]
+                then
+                        echo " continue the program select the menu "
+                else
+                        echo " exiting the program "
+                        exit 1
+                fi
+                        ;;
+
+                B|subtraction|sub)  echo "additoin of two numbers = $((num1-num2))"
+                    
+					read -p "do you want to continue :" yes
+                        if [ $yes == yes ]
+                then
+                        echo " continue the program  select the menu  "
+                else
+                        echo " exiting the program"
+                        exit 1
+                fi
+                        ;;
+
+                C|multiplication|mul)  echo "additoin of two numbers = $((num1*num2))"
+
+                         read -p "do you want to continue :" yes
+                        if [ $yes == yes ]
+						
+                then
+                        echo " continue the program  select the menu "
+                else
+                        echo " exiting the program"
+                        exit 1
+                fi
+                        ;;
+
+                D) exit
+                        ;;
+                *) echo " invalid choice"
+                        ;;
+
+esac
+
+
+done
