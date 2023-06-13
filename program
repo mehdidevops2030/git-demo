@@ -1,70 +1,63 @@
 #!/bin/bash
 
-while true
-do
+while true; do
+    echo -n 'enter the first number : '
+    read -r num1
+    echo -n 'enter the second number : '
+    read -r num2
 
+    echo "
+            A.addition
+            B.subtraction
+            C.multiplication
+            D.exit
+            E.continue
+    "
+    read -p "select operation: " operation
 
-         echo -n 'enter the first number : '
-        read -r num1
-        echo -n 'enter the second number : '
-        read -r num2
+    case $operation in
+        A|addition|add)
+            echo "addition of two numbers = $((num1+num2))"
+            read -p "do you want to continue: " yes
 
-        echo "
-                A.addition
-                B.subtraction
-                C.multiplication
-                d.exit
-                e:continue
-        "
-        read -p "select operation: " operation
+            if [ "$yes" = "yes" ]; then
+                echo "continue the program, select the menu"
+            else
+                echo "exiting the program"
+                exit 1
+            fi
+            ;;
 
+        B|subtraction|sub)
+            echo "subtraction of two numbers = $((num1-num2))"
+            read -p "do you want to continue: " yes
 
-				case $operation in
-                A|addition|add) echo "additoin of two numbers = $((num1+num2))"
-                    
-					read -p "do you want to continue :" yes
+            if [ "$yes" = "yes" ]; then
+                echo "continue the program, select the menu"
+            else
+                echo "exiting the program"
+                exit 1
+            fi
+            ;;
 
+        C|multiplication|mul)
+            echo "multiplication of two numbers = $((num1*num2))"
+            read -p "do you want to continue: " yes
 
-                        if [ $yes == yes ]
-                then
-                        echo " continue the program select the menu "
-                else
-                        echo " exiting the program "
-                        exit 1
-                fi
-                        ;;
+            if [ "$yes" = "yes" ]; then
+                echo "continue the program, select the menu"
+            else
+                echo "exiting the program"
+                exit 1
+            fi
+            ;;
 
-                B|subtraction|sub)  echo "additoin of two numbers = $((num1-num2))"
-                    
-					read -p "do you want to continue :" yes
-                        if [ $yes == yes ]
-                then
-                        echo " continue the program  select the menu  "
-                else
-                        echo " exiting the program"
-                        exit 1
-                fi
-                        ;;
+        D)
+            exit
+            ;;
 
-                C|multiplication|mul)  echo "additoin of two numbers = $((num1*num2))"
-
-                         read -p "do you want to continue :" yes
-                        if [ $yes == yes ]
-						
-                then
-                        echo " continue the program  select the menu "
-                else
-                        echo " exiting the program"
-                        exit 1
-                fi
-                        ;;
-
-                D) exit
-                        ;;
-                *) echo " invalid choice"
-                        ;;
-
-esac
-
-
+        *)
+            echo "invalid choice"
+            ;;
+    esac
 done
